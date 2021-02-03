@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'dob', 'avatar',
+        'first_name', 'last_name', 'email', 'password', 'admin', 'dob', 'avatar',
     ];
 
     /**
@@ -42,5 +42,10 @@ class User extends Authenticatable
     public function socialProviders()
     {
         return $this->hasMany(socialProvider::class);
+    }
+
+    public function isAdmin() 
+    {
+        return $this->admin;
     }
 }
